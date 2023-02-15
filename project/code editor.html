@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea{
+            background-color: black;
+            color:aliceblue;
+        }
+        
+        iframe{
+            background-color: rgb(234, 221, 221);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="editor">
+        <textarea id="html-code"></textarea>
+        <textarea id="css-code"></textarea>
+        
+        <iframe id="output"></iframe>
+    </div>
+    <script >
+        function run (){
+            let htmlcode = document.querySelector(".editor #html-code").value;
+            let csscode = "<style>"+document.querySelector(".editor #css-code").value+"</style>";
+            let output = document.querySelector(".editor #output");
+            output.contentDocument.body.innerHTML = htmlcode+csscode;
+        }
+        
+        document.querySelector(".editor #html-code").addEventListener("keyup",run);
+        document.querySelector(".editor #css-code").addEventListener("keyup",run);
+    </script>
+
+
+    
+</body>
+</html>
